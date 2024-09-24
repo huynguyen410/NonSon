@@ -1,0 +1,329 @@
+@charset "utf-8";
+
+/* CSS Document */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.footer-bg {
+    background-color: #f3f4f6;
+}
+
+.navbar {
+    background-color: #2579f2;
+
+}
+
+.navbar img {
+    width: 143px;
+}
+
+.navbar .d-flex input {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.navbar div a:hover {
+    color: black !important;
+}
+
+.navbar div button {
+    background-color: #2579f2;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.fa-magnifying-glass {
+    color: white;
+}
+
+.carousel {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.carousel-inner img {
+    width: 100%;
+}
+
+.row a {
+    text-decoration: none;
+}
+
+.row a p {
+    color: black;
+    font: 14px;
+}
+
+.row a p:hover {
+    text-decoration: underline;
+}
+
+.social a {
+    font-size: 3em;
+    text-decoration: none;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+.fa-twitter {
+    color: #00aced;
+}
+
+.fa-youtube {
+    color: #bb0000;
+}
+
+.margin-right-3 {
+    margin-right: 4em;
+}
+
+.margin-top-6 {
+    margin-top: 6rem !important;
+}
+
+.margin-top-10 {
+    margin-top: 10rem !important;
+}
+
+.bg-list {
+    background-color: #e1e1e1d4;
+}
+
+.p-2 a {
+    color: black;
+    padding: 0.5rem !important;
+}
+
+hr.light {
+    border-top: 1px solid #d5d5d5;
+    width: 75%;
+}
+
+.light-100 {
+    border-top: 1px solid #443b3b92;
+    width: 100%;
+}
+
+.align-icon {
+    vertical-align: -0.13rem !important;
+}
+
+.Netflix {
+    font-size: 22px;
+    margin-left: -0.2rem;
+}
+
+.margin-top-7 {
+    margin-top: 7rem !important;
+}
+
+#more {
+    display: none;
+}
+
+.searchInput {
+    position: absolute;
+    width: 479px;
+}
+
+ul {
+    list-style: none;
+}
+
+.listPage {
+    padding: 10px;
+    text-align: center;
+    list-style: none;
+}
+
+.listPage li {
+    color: black;
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.listPage .active {
+    background-color: #2579f2;
+    color: white;
+    border: 1px solid #2579f2;
+}
+
+.hide {
+    display: none;
+}
+/*Media Query*/
+
+@media (max-width: 1400px) {
+    .margin-top-6 {
+        margin-top: 8.5rem;
+    }
+
+    .searchInput {
+        width: 398px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .col-md-3 a img {
+        margin: 2rem 0rem;
+    }
+
+    .margin-top-6 {
+        margin-top: 9rem;
+    }
+
+    .margin-top {
+        margin-top: 9rem;
+    }
+
+    .searchInput {
+        width: 475px;
+    }
+}
+
+
+
+/* Dropdown account Button */
+.dropdown-menu:hover {
+    background-color: #e9ecef;
+}
+
+
+
+
+.shopping-cart {
+  display: grid;
+  
+  justify-content: center;
+  gap: 13px;
+
+}
+
+.cart-item {
+  border: 2px solid #212529;
+  border-radius: 6px;
+  display: flex;
+}
+
+.margin-top-4 {
+    margin-top: 4.5rem !important;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  /* padding: 10px; */
+  gap: 10px;
+  
+}
+
+.title-price-x {
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 2px solid red; */
+}
+
+.title-price {
+  display: flex;
+  align-items: center;
+ 
+  width: 1550px;
+}
+
+.cart-item-price {
+  background-color: #212529;
+  color: white;
+  border-radius: 4px;
+  padding: 3px 6px;
+  margin-right: 335px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.price-quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.HomeBtn {
+	background-color: #2579f2;
+	color: white;
+	text-align: center;
+	width: 150px;
+	height: 30px;
+}
+.HomeBtn:hover {
+	background-color: white;
+	color: black;
+	text-align: center;
+	width: 150px;
+	height: 30px;
+}
+
+.bi {
+    cursor: pointer;
+}
+
+.btn.checkout:hover {
+    color: black !important;
+}
+
+.margin-bottom-4 {
+    margin-bottom: 4.9rem !important;
+}
+
+.margin-bottom-7 {
+    margin-bottom: 7rem !important;
+}
+
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+  text-align: center;
+  position: relative;
+  top: 50%;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+ 

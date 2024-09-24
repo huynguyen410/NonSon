@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    margin: 6rem 0rem;
+}
+
+.login {
+    width: 501px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    border: 0.5px solid black;
+}
+
+/* .login h1 {
+    font-size: 36px;
+    margin-bottom: 25px;
+} */
+
+.login .another-login {
+    margin: 30px;
+    text-align: center;
+    
+}
+
+.login form {
+    font-size: 20px;
+}
+
+.login .login-button{
+    display: flex;
+    justify-content: space-around;
+}
