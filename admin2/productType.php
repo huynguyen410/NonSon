@@ -7,6 +7,8 @@ if (isset($_GET['MA_LOAI'])) {
     $sql = $sql . " WHERE `MA_LOAI` like '%" . $_GET['MA_LOAI'] . "%'";
 }
 $result = executeQuery($sql);
+
+$typeID = $productTypeName = $productDetail = '';
 ?>
 
 <!DOCTYPE html>
@@ -128,10 +130,10 @@ $result = executeQuery($sql);
                                             echo "<td>" . $row['TEN_LOAI'] . "</td>";
                                             echo "<td width=700>" . $row['CHI_TIET'] . "</td>";
                                     ?>
-                                            <td>
-                                                <button type="button" class="btn btn-primary button" data-toggle="modal" data-target="#fixTypeProductModal" data-id="<?php echo $row['MA_LOAI'] ?>">
+                                            <td class="text-center">
+                                                <!-- <button type="button" class="btn btn-primary button" data-toggle="modal" data-target="#fixTypeProductModal" data-id="<?php echo $row['MA_LOAI'] ?>">
                                                     Sửa thông tin
-                                                </button>
+                                                </button> -->
                                                 <a href="productType_DeleteBtn.php?<?php echo "MA_LOAI=" . $row['MA_LOAI'] ?>">
                                                     <button type="button" class="btn btn-danger button">
                                                         Xoá
@@ -146,7 +148,7 @@ $result = executeQuery($sql);
                                 </tbody>
                             </table>
                             <!-- fix product Modal -->
-                            <div class=" modal fade" tabindex="-1" role="dialog" aria-labelledby="fixTypeProduct" aria-hidden="true" id="edit-product-modal">
+                            <!-- <div class=" modal fade" tabindex="-1" role="dialog" aria-labelledby="fixTypeProduct" aria-hidden="true" id="fixTypeProductModal">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -155,7 +157,7 @@ $result = executeQuery($sql);
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <!-- fix product data -->
+                                        
                                         <div class="modal-body">
                                             <form class="needs-validation" action='product_edit.php' id="productEdit-form">
                                                 <div class="form-group">
@@ -164,40 +166,9 @@ $result = executeQuery($sql);
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class=" form-label" for="productID">Mã sản phẩm</label>
-                                                    <input class="form-control" type="text" name="productID_edit" value="<?php echo ($productID); ?>" readonly>
+                                                    <label class=" form-label" for="productName">Tên loại sản phẩm</label>
+                                                    <input class="form-control" type="text" name="productTypeName_edit" value="<?php echo ($productTypeName); ?>">
                                                 </div>
-
-                                                <div class="form-group">
-                                                    <label class=" form-label" for="productName">Tên sản phẩm</label>
-                                                    <input class="form-control" type="text" name="productName_edit" value="<?php echo ($productName); ?>">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class=" form-label" for="color">Màu</label>
-                                                    <input class="form-control" type="text" name="color_edit" value="<?php echo ($color); ?>">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="form-label" for="price">Giá</label>
-                                                    <input class="form-control" type="price" name="price_edit" value="<?php echo ($price); ?>">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="form-label" for="remainingProducts">Số lượng</label>
-                                                    <input class="form-control" type="remainingProducts" name="remainingProducts_edit" value="<?php echo ($remainingProducts); ?>">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class=" form-label" for="productStatus">Tình trạng sản phẩm</label>
-                                                    <input class="form-control" type="text" name="productStatus_edit" value="<?php echo ($productStatus); ?>">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="Image" class="form-label">Ảnh sản phẩm</label>
-                                                    <input class="form-control" type="file" name="productImg_edit" onchange="preview()" value="<?php echo ($productImg); ?>">
-                                                </div>
-                                                <img id="frame1" src="" class="img-fluid">
 
                                                 <div class="form-group">
                                                     <label class=" form-label" for="productDetail">Chi tiết</label>
@@ -214,7 +185,7 @@ $result = executeQuery($sql);
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

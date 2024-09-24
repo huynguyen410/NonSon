@@ -1,31 +1,44 @@
 <?php
 session_start();
 require './DataProvider.php';
+$today = date('Y-m-d');
 
-$sql = "SELECT * FROM hoadon LEFT JOIN chitiet_hoadon ON hoadon.MA_HD = chitiet_hoadon.MA_HD";
+$sql = "SELECT * FROM hoadon LEFT JOIN chitiet_hoadon ON hoadon.MA_HD = chitiet_hoadon.MA_HD WHERE 1=1";
+$params = [];
+$types = ''; // This will hold the types for bind_param()
 
-if (isset($_GET['MA_HD'])) {
-    $sql .= " WHERE hoadon.`MA_HD` LIKE '%" . $_GET['MA_HD'] . "%'
-              OR chitiet_hoadon.`MA_HD` LIKE '%" . $_GET['MA_HD'] . "%'";
+if (!empty($_GET['start_date'])) {
+    $sql .= " AND NGAY_TAO_HD >= ?";
+    $params[] = $_GET['start_date'];
+    $types .= 's'; // 's' for string (or 'd' if it's a date stored as a date object)
 }
 
-if (isset($_GET['start_date']) || isset($_GET['end_date']) || isset($_GET['dia_chi']) || isset($_GET['trang_thai'])) {
-    $sql = "SELECT * FROM hoadon LEFT JOIN chitiet_hoadon ON hoadon.MA_HD = chitiet_hoadon.MA_HD WHERE 1=1 ";
-    if (!empty($_GET['start_date'])) {
-        $start_date = $_GET['start_date'];
-        $sql .= " AND NGAY_TAO_HD >= '$start_date'";
-    }
-    if (!empty($_GET['dia_chi'])) {
-        $dia_chi = $_GET['dia_chi'];
-        $sql .= " AND DIA_CHI_NHAN LIKE '%$dia_chi%'";
-    }
-    if (!empty($_GET['trang_thai'])) {
-        $trang_thai = $_GET['trang_thai'];
-        $sql .= " AND TRANG_THAI = $trang_thai";
-    }
+if (!empty($_GET['dia_chi'])) {
+    $sql .= " AND DIA_CHI_NHAN LIKE ?";
+    $params[] = '%' . $_GET['dia_chi'] . '%';
+    $types .= 's'; // 's' for string
 }
 
-$result = $conn->query($sql);
+if (isset($_GET['trang_thai']) && $_GET['trang_thai'] !== '') { // Ensure the value is set and not empty
+    $sql .= " AND TRANG_THAI = ?";
+    $params[] = (int)$_GET['trang_thai']; // Explicitly cast to integer
+    $types .= 'i'; // 'i' for integer
+}
+
+
+// Prepare the statement
+$stmt = $conn->prepare($sql);
+
+// Check if there are parameters to bind
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params); // Bind parameters if any
+}
+
+// Execute the statement
+$stmt->execute();
+$result = $stmt->get_result();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -133,19 +146,20 @@ $result = $conn->query($sql);
                                     <!--- form lọc ngày, địa chỉ nhận, trạng thái --->
                                     <form action="order.php" method="GET">
                                         <div class="form-group">
-                                            <label for="start_date">Từ ngày:</label>
-                                            <input type="date" class="form-control" id="start_date" name="start_date">
+                                            <input type="date" class="form-control" id="start_date" name="start_date" 
+                                            value="<?php echo isset($_GET['start_date']) ? $_GET['start_date'] : ''; ?>" 
+                                            min="1900-01-01" max="<?php echo $today; ?>"> <!-- Set min and max values -->
                                         </div>
                                         <div class="form-group">
                                             <label for="dia_chi">Địa chỉ nhận:</label>
-                                            <input type="text" class="form-control" id="dia_chi" name="dia_chi">
+                                            <input type="text" class="form-control" id="dia_chi" name="dia_chi" value="<?php echo isset($_GET['dia_chi']) ? htmlspecialchars($_GET['dia_chi'], ENT_QUOTES, 'UTF-8') : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="trang_thai">Trạng thái:</label>
                                             <select class="form-control" id="trang_thai" name="trang_thai">
-                                                <option value="">Tất cả</option>
-                                                <option value="0">Chưa xử lý</option>
-                                                <option value="1">Đã xử lý </option>
+                                                <option value="" <?php if (!isset($_GET['trang_thai']) || $_GET['trang_thai'] === '') echo 'selected'; ?>>Tất cả</option>
+                                                <option value="0" <?php if (isset($_GET['trang_thai']) && $_GET['trang_thai'] === '0') echo 'selected'; ?>>Chưa xử lý</option>
+                                                <option value="1" <?php if (isset($_GET['trang_thai']) && $_GET['trang_thai'] === '1') echo 'selected'; ?>>Đã xử lý</option>
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Lọc</button>
@@ -164,7 +178,7 @@ $result = $conn->query($sql);
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="Ban Non text-center my-auto">
-                        <span>NON SON</span>
+                        <span>Non Son</span>
                     </div>
                 </div>
             </footer>
