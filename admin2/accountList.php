@@ -128,7 +128,8 @@ $name = $phoneNumber = $email = $address = $role = '';
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                                <button type="submit" class="btn btn-primary" name="add" onclick="reloadPage()">Thêm</button>
+                                                <!-- <button type="submit" class="btn btn-primary" name="add" onclick="reloadPage()">Thêm</button> -->
+                                                <button type="submit" class="btn btn-primary" name="add">Thêm</button>
                                             </div>
                                         </form>
                                     </div>

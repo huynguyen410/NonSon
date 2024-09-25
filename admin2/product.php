@@ -236,7 +236,7 @@ $result = executeQuery($sql);
                                         </div>
                                         <!-- fix product data -->
                                         <div class="modal-body">
-                                            <form class="needs-validation" action='product_edit.php' id="productEdit-form">
+                                            <form class="needs-validation" action='product_edit.php' id="productEdit-form" enctype="multipart/form-data">
                                                 <div class="form-group">
                                                     <label class=" form-label" for="typeID">Loại sản phẩm</label>
                                                     <input class="form-control" type="text" name="typeID_edit" readonly>
@@ -274,7 +274,7 @@ $result = executeQuery($sql);
 
                                                 <div class="form-group">
                                                     <label for="Image" class="form-label">Ảnh sản phẩm</label>
-                                                    <input class="form-control" type="file" name="productImg_edit" onchange="preview()">
+                                                    <input class="form-control" type="file" name="productImg_edit" id="productImg_edit" onchange="preview()">
                                                 </div>
                                                 <img id="frame1" src="" class="img-fluid">
 
@@ -355,16 +355,19 @@ $result = executeQuery($sql);
         <!-- add picture -->
         <script>
             function preview() {
-                frame.src = URL.createObjectURL(event.target.files[0]);
-            }
+                const file = document.getElementById('productImg').files[0];
+                const imgFrame = document.getElementById('frame1');
+                const reader = new FileReader();
 
-            function clearImage() {
-                document.getElementById('productImg').value = window.history(-1);
-                frame.src = "";
-            }
+                reader.onloadend = function() {
+                    imgFrame.src = reader.result;
+                }
 
-            function reloadPage() {
-                // window.location.reload()
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    imgFrame.src = ""; // Clear the image preview if no file is selected
+                }
             }
         </script>
 
