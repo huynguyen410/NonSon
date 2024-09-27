@@ -25,10 +25,10 @@
         <p>Quận 5 - Thành phố Hồ Chí Minh - Việt Nam </p>
       </div>
       <div class="col">
-        <p title="3121411086">Nguyễn Hoàng Bảo Huy</p>
-        <p title="3121411058">Nguyễn Hữu Đức</p>
-        <p title="3121411070">Huỳnh Lê Trung Hiếu</p>
-        <p title="3121411081">Trương Quang Hùng</p>
+        <p>Nguyễn Hoàng Bảo Huy</p>
+        <p>Nguyễn Hữu Đức</p>
+        <p>Huỳnh Ngọc Mẫn</p>
+        <p>Nguyễn Hoàng Đăng Khoa</p>
       </div>
       <div>
         <hr class="light-100 mt-1">
