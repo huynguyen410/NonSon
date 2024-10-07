@@ -40,9 +40,9 @@ if (isset($_SESSION['name'])) {
         <div class="p-2 fw-bold"><a href="category.php?idcat=1"><i class="fa-solid fa-helmet-un"
               style="color: #4b6bec;"></i> TẤT CẢ</a></div>
         <div class="p-2 fw-bold"><a href="category.php?idcat=2"><i class="fa-solid fa-helmet-un"
-              style="color: #4b6bec;"></i> SẢN PHẨM GIÁ RẺ</a></div>
-        <div class="p-2 fw-bold"><a href="category.php?idcat=3"><i class="fa-solid fa-helmet-un"
               style="color: #4b6bec;"></i> SẢN PHẨM NỔI BẬT</a></div>
+        <div class="p-2 fw-bold"><a href="category.php?idcat=3"><i class="fa-solid fa-helmet-un"
+              style="color: #4b6bec;"></i> SẢN PHẨM GIÁ RẺ</a></div>
         <div class="p-2 fw-bold"><a href="category.php?idcat=4"><i class="fa-solid fa-helmet-un"
               style="color: #4b6bec;"></i> NÓN FULLFACE</a></div>
         <div class="p-2 fw-bold"><a href="category.php?idcat=5"><i class="fa-solid fa-helmet-un"

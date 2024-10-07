@@ -27,8 +27,8 @@ $TF_products = $conn->query($sql6);
 
 $tabData = array(
   array("id" => "pills-1", "name" => "TẤT CẢ", "selected" => "false"),
-  array("id" => "pills-2", "name" => "SẢN PHẨM GIÁ RẺ", "selected" => "false"),
-  array("id" => "pills-3", "name" => "SẢN PHẨM NỔI BẬT", "selected" => "false"),
+  array("id" => "pills-2", "name" => "SẢN PHẨM NỔI BẬT", "selected" => "false"),
+  array("id" => "pills-3", "name" => "SẢN PHẨM GIÁ RẺ", "selected" => "false"),
   array("id" => "pills-4", "name" => "NÓN FULLFACE", "selected" => "false"),
   array("id" => "pills-5", "name" => "NÓN 1/2 ĐẦU", "selected" => "false"),
   array("id" => "pills-6", "name" => "NÓN 3/4 ĐẦU", "selected" => "false")
@@ -116,7 +116,7 @@ $tabData = array(
       ?>
     </div>
   </div>
-  
+
   <!-- Sản phẩm nổi bật -->
   <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
     <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 mt-1">
