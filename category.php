@@ -14,10 +14,10 @@ if (isset($_GET['page'])) {
 $offset = ($pageNum - 1) * $rowsPerPage;
 $sql1 = "SELECT * FROM sanpham LIMIT $offset, $rowsPerPage";
 $all_products = $conn->query($sql1);
-$sql2 = "SELECT * FROM sanpham WHERE SO_LUONG <= 20 LIMIT $offset, $rowsPerPage";
-$hot_products = $conn->query($sql2);
-$sql3 = "SELECT * FROM sanpham WHERE GIA <= 500000 LIMIT $offset, $rowsPerPage";
-$cheap_products = $conn->query($sql3);
+$sql2 = "SELECT * FROM sanpham WHERE GIA <= 500000 LIMIT $offset, $rowsPerPage";
+$cheap_products = $conn->query($sql2);
+$sql3 = "SELECT * FROM sanpham WHERE SO_LUONG <= 20 LIMIT $offset, $rowsPerPage";
+$hot_products = $conn->query($sql3);
 $sql4 = "SELECT * FROM sanpham WHERE MA_LOAI = 'FF' LIMIT $offset, $rowsPerPage";
 $FF_products = $conn->query($sql4);
 $sql5 = "SELECT * FROM sanpham WHERE MA_LOAI = '12F' LIMIT $offset, $rowsPerPage";
@@ -27,8 +27,8 @@ $TF_products = $conn->query($sql6);
 
 $tabData = array(
   array("id" => "pills-1", "name" => "TẤT CẢ", "selected" => "false"),
-  array("id" => "pills-2", "name" => "SẢN PHẨM NỔI BẬT", "selected" => "false"),
-  array("id" => "pills-3", "name" => "SẢN PHẨM GIÁ RẺ", "selected" => "false"),
+  array("id" => "pills-2", "name" => "SẢN PHẨM GIÁ RẺ", "selected" => "false"),
+  array("id" => "pills-3", "name" => "SẢN PHẨM NỔI BẬT", "selected" => "false"),
   array("id" => "pills-4", "name" => "NÓN FULLFACE", "selected" => "false"),
   array("id" => "pills-5", "name" => "NÓN 1/2 ĐẦU", "selected" => "false"),
   array("id" => "pills-6", "name" => "NÓN 3/4 ĐẦU", "selected" => "false")
@@ -88,12 +88,12 @@ $tabData = array(
       ?>
     </div>
   </div>
-
-  <!-- Sản phẩm nổi bật -->
-  <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+  
+  <!-- Sản phẩm giá rẻ -->
+  <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
     <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 mt-1">
       <?php
-      while ($row = mysqli_fetch_assoc($hot_products)) {
+      while ($row = mysqli_fetch_assoc($cheap_products)) {
         ?>
         <div class="col-md-3">
           <a href="detail.php?id=<?php echo $row["MA_SP"]; ?>">
@@ -116,12 +116,12 @@ $tabData = array(
       ?>
     </div>
   </div>
-
-  <!-- Sản phẩm giá rẻ -->
-  <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
+  
+  <!-- Sản phẩm nổi bật -->
+  <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
     <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 mt-1">
       <?php
-      while ($row = mysqli_fetch_assoc($cheap_products)) {
+      while ($row = mysqli_fetch_assoc($hot_products)) {
         ?>
         <div class="col-md-3">
           <a href="detail.php?id=<?php echo $row["MA_SP"]; ?>">
