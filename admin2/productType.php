@@ -135,7 +135,7 @@ $typeID = $productTypeName = $productDetail = '';
                                                     Sửa thông tin
                                                 </button> -->
                                                 <a href="productType_DeleteBtn.php?<?php echo "MA_LOAI=" . $row['MA_LOAI'] ?>">
-                                                    <button type="button" class="btn btn-danger button">
+                                                    <button type="button" class="btn btn-danger button" onclick="return confirm('Bạn có chắc chắn muốn xoá không ?')" >
                                                         Xoá
                                                     </button>
                                                 </a>
