@@ -6,7 +6,7 @@ try {
 
     // Check if the productImg_edit file is uploaded
     if (isset($_FILES['productImg_edit']) && !empty($_FILES['productImg_edit']['tmp_name'])) {
-        $targetDirectory = "D:/xampp/htdocs/NonSon/img"; // Set your target directory
+        $targetDirectory = "img/"; // Set your target directory
         $targetFile = $targetDirectory . basename($_FILES['productImg_edit']['name']);
         if (!move_uploaded_file($_FILES['productImg_edit']['tmp_name'], $targetFile)) {
             throw new ErrorException("Lỗi khi tải file lên.");
